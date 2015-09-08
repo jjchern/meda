@@ -28,8 +28,8 @@ d = function(df, compact = TRUE) {
     head = sapply(cpsmar1980, meda.head)
   )
   if (compact == TRUE) {
-    ddf$type = abbreviate(ddf$var, 3)
-    ddf$class = abbreviate(ddf$var, 3)
+    ddf$type = abbreviate(ddf$type, 3)
+    ddf$class = abbreviate(ddf$class, 3)
     ddf$head = substr(ddf$head, 1, 25)
     ddf
     }
