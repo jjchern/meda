@@ -9,3 +9,8 @@ License: GPL-3
 LazyData: TRUE
 URL: https://github.com/jjchern/meda
 BugReports: https://github.com/jjchern/meda/issues
+Imports:
+    dplyr,
+    labelled
+Suggests:
+    haven
