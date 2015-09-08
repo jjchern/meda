@@ -12,7 +12,7 @@ Installation
 Since the `labelled` package is still not up on CRAN, we might also install it as well.
 
     devtools::install_github("larmarange/labelled")
-    devtools::install_github("jjchern/meta")
+    devtools::install_github("jjchern/meda")
 
 Usage
 =====
@@ -22,27 +22,28 @@ library(meda)
 nlsw88 = haven::read_dta("http://www.stata-press.com/data/r13/nlsw88.dta")
 
 d(nlsw88) # shows variable labels, and whether value label exists for certain variables
-#> Source: local data frame [17 x 5]
+#> Source: local data frame [17 x 6]
 #> 
-#>              var var_type var_class val_label               var_label
-#>            (chr)    (chr)     (chr)     (lgl)                   (chr)
-#> 1         idcode  integer   integer     FALSE                  NLS id
-#> 2            age  integer   integer     FALSE     age in current year
-#> 3           race  integer  labelled      TRUE                    race
-#> 4        married  integer  labelled      TRUE                 married
-#> 5  never_married  integer   integer     FALSE           never married
-#> 6          grade  integer   integer     FALSE current grade completed
-#> 7       collgrad  integer  labelled      TRUE        college graduate
-#> 8          south  integer   integer     FALSE          lives in south
-#> 9           smsa  integer  labelled      TRUE           lives in SMSA
-#> 10        c_city  integer   integer     FALSE   lives in central city
-#> 11      industry  integer  labelled      TRUE                industry
-#> 12    occupation  integer  labelled      TRUE              occupation
-#> 13         union  integer  labelled      TRUE            union worker
-#> 14          wage   double   numeric     FALSE             hourly wage
-#> 15         hours  integer   integer     FALSE      usual hours worked
-#> 16       ttl_exp   double   numeric     FALSE   total work experience
-#> 17        tenure   double   numeric     FALSE      job tenure (years)
+#>              var  type class val_label                   label
+#>            (chr) (chr) (chr)     (lgl)                   (chr)
+#> 1         idcode   int   int     FALSE                  NLS id
+#> 2            age   int   int     FALSE     age in current year
+#> 3           race   int   lbl      TRUE                    race
+#> 4        married   int   lbl      TRUE                 married
+#> 5  never_married   int   int     FALSE           never married
+#> 6          grade   int   int     FALSE current grade completed
+#> 7       collgrad   int   lbl      TRUE        college graduate
+#> 8          south   int   int     FALSE          lives in south
+#> 9           smsa   int   lbl      TRUE           lives in SMSA
+#> 10        c_city   int   int     FALSE   lives in central city
+#> 11      industry   int   lbl      TRUE                industry
+#> 12    occupation   int   lbl      TRUE              occupation
+#> 13         union   int   lbl      TRUE            union worker
+#> 14          wage   dbl   nmr     FALSE             hourly wage
+#> 15         hours   int   int     FALSE      usual hours worked
+#> 16       ttl_exp   dbl   nmr     FALSE   total work experience
+#> 17        tenure   dbl   nmr     FALSE      job tenure (years)
+#> Variables not shown: head (chr)
 
 # Note that there's a value label for the variable "race", thus we can checkout the values
 labelled::val_labels(nlsw88$race)
@@ -50,10 +51,10 @@ labelled::val_labels(nlsw88$race)
 #>     1     2     3
 
 lookfor(nlsw88, "mar") # search for variables that are related to marriage
-#> Source: local data frame [2 x 5]
+#> Source: local data frame [2 x 6]
 #> 
-#>             var var_type var_class val_label     var_label
-#>           (chr)    (chr)     (chr)     (lgl)         (chr)
-#> 1       married  integer  labelled      TRUE       married
-#> 2 never_married  integer   integer     FALSE never married
+#>             var  type class val_label         label      head
+#>           (chr) (chr) (chr)     (lgl)         (chr)     (chr)
+#> 1       married   int   lbl      TRUE       married 0 0 0 1 1
+#> 2 never_married   int   int     FALSE never married 0 0 1 0 0
 ```

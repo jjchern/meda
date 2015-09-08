@@ -27,7 +27,7 @@ Since the `labelled` package is still not up on CRAN, we might also install it a
 
 ```
 devtools::install_github("larmarange/labelled")
-devtools::install_github("jjchern/meta")
+devtools::install_github("jjchern/meda")
 ```
 
 # Usage
