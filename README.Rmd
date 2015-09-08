@@ -29,3 +29,18 @@ Since the `labelled` package is still not up on CRAN, we might also install it a
 devtools::install_github("larmarange/labelled")
 devtools::install_github("jjchern/meta")
 ```
+
+# Usage
+
+```{r}
+library(meda)
+nlsw88 = haven::read_dta("http://www.stata-press.com/data/r13/nlsw88.dta")
+
+d(nlsw88) # shows variable names, variable labels, and whether value label exists for certain variables
+
+# Note that there's a value label for the variable "race", thus we can checkout the values
+labelled::val_labels(nlsw88$race)
+
+lookfor(nlsw88, "mar") # search for variables that are related to marriage
+```
+
