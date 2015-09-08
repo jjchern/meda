@@ -20,7 +20,8 @@ l(df, by = NULL, n = 20)
 \code{l} lists observations in a data frame, just like the \code{l} command in Stata.
 }
 \examples{
+library(dplyr)
 abdata = haven::read_dta("http://www.stata-press.com/data/r13/abdata.dta")
-abdata \%>\% dplyr::select(id, year, wage) \%>\% l("id", n = 30)
+abdata \%>\% select(id, year, wage) \%>\% l("id", n = 30)
 }
 

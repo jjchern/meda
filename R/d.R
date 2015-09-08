@@ -5,6 +5,8 @@
 #'
 #' @param df `df` should be a data frame.
 #' `d` works best with labelled data frames (from the `haven` package).
+#' @param compact `compact` should be logical.
+#'
 #' @return `d(df)` returns a data frame that contains metadata records
 #' for the dataset.
 #'

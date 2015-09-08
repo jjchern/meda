@@ -9,6 +9,8 @@ d(df, compact = TRUE)
 \arguments{
 \item{df}{\code{df} should be a data frame.
 \code{d} works best with labelled data frames (from the \code{haven} package).}
+
+\item{compact}{\code{compact} should be logical.}
 }
 \value{
 \code{d(df)} returns a data frame that contains metadata records
