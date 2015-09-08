@@ -17,14 +17,23 @@
 #'
 #' @export
 
-d = function(df) {
+d = function(df, compact = TRUE) {
   if(!is.data.frame(df)) stop(substitute(df), " should be a data frame.")
   ddf = dplyr::data_frame(
     var = names(df),
-    var_type = sapply(df, typeof),
-    var_class = sapply(df, class),
+    type = sapply(df, typeof),
+    class = sapply(df, class),
     val_label = sapply(labelled::val_labels(df), is.not.null),
-    var_label = meda.label(df)
+    label = meda.label(df),
+    head = sapply(cpsmar1980, meda.head)
   )
-  ddf
+  if (compact == TRUE) {
+    ddf$type = abbreviate(ddf$var, 3)
+    ddf$class = abbreviate(ddf$var, 3)
+    ddf$head = substr(ddf$head, 1, 25)
+    ddf
+    }
+  else {
+    ddf
+  }
 }

@@ -26,3 +26,7 @@ meda.sd = function(x) {
   if (is.character(x)) NA
   else round(sd(x, na.rm = TRUE), digits = 2)
 }
+
+meda.head = function(x) {
+  paste(head(x, 5), collapse = " ")
+}

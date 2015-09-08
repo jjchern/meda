@@ -26,6 +26,6 @@ lookfor = function(df, kw) {
   if(!is.character(kw)) stop(substitute(kw), " shoule be a string.")
   if(length(kw) != 1) stop(substitute(kw), " should has length 1")
   ddf = d(df)
-  ldf = ddf[grepl(kw, ddf$var, ignore.case = TRUE) | grepl(kw, ddf$var_label, ignore.case = TRUE), ]
+  ldf = ddf[grepl(kw, ddf$var, ignore.case = TRUE) | grepl(kw, ddf$label, ignore.case = TRUE), ]
   if(nrow(ldf)) ldf else message("Sorry, nothing found.")
 }
