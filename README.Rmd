@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Travis-CI Build Status](https://travis-ci.org/jjchern/meta.svg?branch=master)](https://travis-ci.org/jjchern/meta)
+
 # About `meda`
 
 This package provides R functions that replicates the behavior of three Stata commands: (1) `d`, that is, `describe`, (2) `lookfor`, and (3) `codebook, compact`. These commands present **me**ta**da**ta records for datasets in a cleaned way. 
