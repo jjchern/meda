@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 # About `meda`
 
-This package provides R functions that replicates the behavior of three Stata commands: (1) `d`, that is, `describe`, (2) `lookfor`, and (3) `codebook, compact`. These commands present **me**ta**da**ta records for datasets in a cleaned way. 
+This package provides R functions that replicates the behavior of four Stata commands: (1) `d`, (2) `lookfor`, (3) `codebook, compact`, and (4) `l, sepby()`. These commands present **me**ta**da**ta records for datasets in a cleaned way. 
 
 The package is built upon two R packages: `haven`, which provides a labelled class that supports labelled data frames, and `labelled`, which makes it easier to work with 
 labelled data frames.
@@ -32,6 +32,8 @@ devtools::install_github("jjchern/meda")
 
 # Usage
 
+## Describe and Look for Variables
+
 ```{r}
 library(meda)
 nlsw88 = haven::read_dta("http://www.stata-press.com/data/r13/nlsw88.dta")
@@ -42,5 +44,13 @@ d(nlsw88) # shows variable labels, and whether value label exists for certain va
 labelled::val_labels(nlsw88$race)
 
 lookfor(nlsw88, "mar") # search for variables that are related to marriage
+```
+
+## List Observations and Separated by Some ID Variable
+
+```{r}
+library(dplyr)
+abdata = haven::read_dta("http://www.stata-press.com/data/r13/abdata.dta")
+abdata %>% select(id, year, wage) %>% l(by = "id", n = 30)
 ```
 

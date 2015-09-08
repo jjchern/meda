@@ -2,7 +2,7 @@
 About `meda`
 ============
 
-This package provides R functions that replicates the behavior of three Stata commands: (1) `d`, that is, `describe`, (2) `lookfor`, and (3) `codebook, compact`. These commands present **me**ta**da**ta records for datasets in a cleaned way.
+This package provides R functions that replicates the behavior of four Stata commands: (1) `d`, (2) `lookfor`, (3) `codebook, compact`, and (4) `l, sepby()`. These commands present **me**ta**da**ta records for datasets in a cleaned way.
 
 The package is built upon two R packages: `haven`, which provides a labelled class that supports labelled data frames, and `labelled`, which makes it easier to work with labelled data frames.
 
@@ -16,6 +16,9 @@ Since the `labelled` package is still not up on CRAN, we might also install it a
 
 Usage
 =====
+
+Describe and Look for Variables
+-------------------------------
 
 ``` r
 library(meda)
@@ -57,4 +60,54 @@ lookfor(nlsw88, "mar") # search for variables that are related to marriage
 #>           (chr) (chr) (chr)     (lgl)         (chr)     (chr)
 #> 1       married   int   lbl      TRUE       married 0 0 0 1 1
 #> 2 never_married   int   int     FALSE never married 0 0 1 0 0
+```
+
+List Observations and Separated by Some ID Variable
+---------------------------------------------------
+
+``` r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> 
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> 
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+abdata = haven::read_dta("http://www.stata-press.com/data/r13/abdata.dta")
+abdata %>% select(id, year, wage) %>% l(by = "id", n = 30)
+#>     id year             wage
+#> 1    1 1977 13.1515998840332
+#> 2    1 1978 12.3017997741699
+#> 3    1 1979 12.8395004272461
+#> 4    1 1980 13.8038997650146
+#> 5    1 1981 14.2896995544434
+#> 6    1 1982 14.8681001663208
+#> 7    1 1983 13.7784004211426
+#> 8  ---  ---              ---
+#> 9    2 1977 14.7909002304077
+#> 10   2 1978 14.1035995483398
+#> 11   2 1979 14.9533996582031
+#> 12   2 1980 15.4910001754761
+#> 13   2 1981 16.1968994140625
+#> 14   2 1982 16.1313991546631
+#> 15   2 1983 16.3050994873047
+#> 16 ---  ---              ---
+#> 17   3 1977 22.6919994354248
+#> 18   3 1978 20.6937999725342
+#> 19   3 1979 21.2047996520996
+#> 20   3 1980   22.19700050354
+#> 21   3 1981 24.8714008331299
+#> 22   3 1982 24.8446998596191
+#> 23   3 1983 28.9076995849609
+#> 24 ---  ---              ---
+#> 25   4 1977 14.8283004760742
+#> 26   4 1978 14.8379001617432
+#> 27   4 1979  14.875599861145
+#> 28   4 1980 15.2332000732422
+#> 29   4 1981 17.2528991699219
+#> 30   4 1982 19.3141994476318
 ```
