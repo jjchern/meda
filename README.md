@@ -21,7 +21,7 @@ Usage
 library(meda)
 nlsw88 = haven::read_dta("http://www.stata-press.com/data/r13/nlsw88.dta")
 
-d(nlsw88) # shows variable names, variable labels, and whether value label exists for certain variables
+d(nlsw88) # shows variable labels, and whether value label exists for certain variables
 #> Source: local data frame [17 x 5]
 #> 
 #>              var var_type var_class val_label               var_label
