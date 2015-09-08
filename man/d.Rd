@@ -4,7 +4,7 @@
 \alias{d}
 \title{Describe a data frame}
 \usage{
-d(df)
+d(df, compact = TRUE)
 }
 \arguments{
 \item{df}{\code{df} should be a data frame.
