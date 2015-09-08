@@ -25,7 +25,7 @@ d = function(df, compact = TRUE) {
     class = sapply(df, class),
     val_label = sapply(labelled::val_labels(df), is.not.null),
     label = meda.label(df),
-    head = sapply(cpsmar1980, meda.head)
+    head = sapply(df, meda.head)
   )
   if (compact == TRUE) {
     ddf$type = abbreviate(ddf$type, 3)
