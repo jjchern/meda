@@ -38,6 +38,8 @@ devtools::install_github("jjchern/meda")
 library(meda)
 nlsw88 = haven::read_dta("http://www.stata-press.com/data/r13/nlsw88.dta")
 
+cb(nlsw88) # show summary statistics of a data frame
+
 d(nlsw88) # shows variable labels, and whether value label exists for certain variables
 
 # Note that there's a value label for the variable "race", thus we can checkout the values

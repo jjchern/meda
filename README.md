@@ -26,6 +26,30 @@ Describe and Look for Variables
 library(meda)
 nlsw88 = haven::read_dta("http://www.stata-press.com/data/r13/nlsw88.dta")
 
+cb(nlsw88) # show summary statistics of a data frame
+#> Source: local data frame [17 x 8]
+#> 
+#>              var   obs unique    mean std.dev   min     max
+#>            (chr) (int)  (int)   (dbl)   (dbl) (dbl)   (dbl)
+#> 1         idcode  2246   2246 2612.65 1480.86  1.00 5159.00
+#> 2            age  2246     13   39.15    3.06 34.00   46.00
+#> 3           race  2246      3    1.28    0.48  1.00    3.00
+#> 4        married  2246      2    0.64    0.48  0.00    1.00
+#> 5  never_married  2246      2    0.10    0.31  0.00    1.00
+#> 6          grade  2244     16   13.10    2.52  0.00   18.00
+#> 7       collgrad  2246      2    0.24    0.43  0.00    1.00
+#> 8          south  2246      2    0.42    0.49  0.00    1.00
+#> 9           smsa  2246      2    0.70    0.46  0.00    1.00
+#> 10        c_city  2246      2    0.29    0.45  0.00    1.00
+#> 11      industry  2232     12    8.19    3.01  1.00   12.00
+#> 12    occupation  2237     13    4.64    3.41  1.00   13.00
+#> 13         union  1878      2    0.25    0.43  0.00    1.00
+#> 14          wage  2246    967    7.77    5.76  1.00   40.75
+#> 15         hours  2242     62   37.22   10.51  1.00   80.00
+#> 16       ttl_exp  2246   1546   12.53    4.61  0.12   28.88
+#> 17        tenure  2231    259    5.98    5.51  0.00   25.92
+#> Variables not shown: var_label (chr)
+
 d(nlsw88) # shows variable labels, and whether value label exists for certain variables
 #> Source: local data frame [17 x 6]
 #> 
