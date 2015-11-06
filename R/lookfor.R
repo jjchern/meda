@@ -12,7 +12,7 @@
 #' @return `lookfor(df, kw)` returns a data frame that contains rows which
 #' match the keyword being searched.
 #'
-#' @importFrom dplyr data_frame
+#' @import dplyr
 #' @import labelled
 #'
 #' @examples

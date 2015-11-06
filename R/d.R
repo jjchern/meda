@@ -10,7 +10,7 @@
 #' @return `d(df)` returns a data frame that contains metadata records
 #' for the dataset.
 #'
-#' @importFrom dplyr data_frame
+#' @import dplyr
 #' @import labelled
 #'
 #' @examples

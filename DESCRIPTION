@@ -4,7 +4,8 @@ Title: Display metadata records for datasets
 Version: 0.0.1
 Date: 2015-09-08
 Authors@R: 'JJ Chen <jiajia.chern@gmail.com> [aut,cre]'
-Description: This package presents metadata records, such as variable labels and value labels, for datasets.
+Description: This package presents metadata records, such as variable labels and
+    value labels, for datasets.
 License: GPL-3
 LazyData: TRUE
 URL: https://github.com/jjchern/meda
@@ -14,3 +15,4 @@ Imports:
     labelled
 Suggests:
     haven
+RoxygenNote: 5.0.0.9000
