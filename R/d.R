@@ -32,7 +32,7 @@ d = function(df, compact = TRUE) {
   if (compact == TRUE) {
     ddf = dplyr::mutate(ddf, type = abbreviate(type, 3))
     ddf = dplyr::mutate(ddf, class = abbreviate(class, 3))
-    ddf = dplyr::mutate(ddf, label = ifelse(nchar(label) < 22,
+    ddf = dplyr::mutate(ddf, label = ifelse(nchar(label) < 20,
                                             label,
                                             paste0(substr(label, 1, 22), "...")))
     ddf = dplyr::mutate(ddf, head = paste0(substr(head, 1, 22), "..."))
