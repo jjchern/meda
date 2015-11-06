@@ -30,9 +30,12 @@ d = function(df, compact = TRUE) {
     head = sapply(df, meda.head)
   )
   if (compact == TRUE) {
-    ddf$type = abbreviate(ddf$type, 3)
-    ddf$class = abbreviate(ddf$class, 3)
-    ddf$head = substr(ddf$head, 1, 25)
+    ddf = dplyr::mutate(ddf, type = abbreviate(type, 3))
+    ddf = dplyr::mutate(ddf, class = abbreviate(class, 3))
+    ddf = dplyr::mutate(ddf, label = ifelse(nchar(label) < 22,
+                                            label,
+                                            paste0(substr(label, 1, 22), "...")))
+    ddf = dplyr::mutate(ddf, head = paste0(substr(head, 1, 22), "..."))
     ddf
     }
   else {

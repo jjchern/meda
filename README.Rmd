@@ -25,7 +25,7 @@ labelled data frames.
 
 Since the `labelled` package is still not up on CRAN, we might also install it as well.
 
-```
+```r
 devtools::install_github("larmarange/labelled")
 devtools::install_github("jjchern/meda")
 ```
@@ -43,12 +43,18 @@ d(nlsw88) # shows variable labels, and whether value label exists for certain va
 # Note that there's a value label for the variable "race", thus we can checkout the values
 labelled::val_labels(nlsw88$race)
 
+# Note also that if a variable label is too long, we can find out the whole label with
+labelled::var_label(nlsw88$grade)
+
+# Or look at all the variable labels
+labelled::var_label(nlsw88)
+
 lookfor(nlsw88, "mar") # search for variables that are related to marriage
 ```
 
 ## List Observations and Separated by Some ID Variable
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(dplyr)
 abdata = haven::read_dta("http://www.stata-press.com/data/r13/abdata.dta")
 abdata %>% select(id, year, wage) %>% l(by = "id", n = 30)

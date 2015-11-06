@@ -11,8 +11,10 @@ Installation
 
 Since the `labelled` package is still not up on CRAN, we might also install it as well.
 
-    devtools::install_github("larmarange/labelled")
-    devtools::install_github("jjchern/meda")
+``` r
+devtools::install_github("larmarange/labelled")
+devtools::install_github("jjchern/meda")
+```
 
 Usage
 =====
@@ -53,6 +55,63 @@ labelled::val_labels(nlsw88$race)
 #> white black other 
 #>     1     2     3
 
+# Note also that if a variable label is too long, we can find out the whole label with
+labelled::var_label(nlsw88$grade)
+#> [1] "current grade completed"
+
+# Or look at all the variable labels
+labelled::var_label(nlsw88)
+#> $idcode
+#> [1] "NLS id"
+#> 
+#> $age
+#> [1] "age in current year"
+#> 
+#> $race
+#> [1] "race"
+#> 
+#> $married
+#> [1] "married"
+#> 
+#> $never_married
+#> [1] "never married"
+#> 
+#> $grade
+#> [1] "current grade completed"
+#> 
+#> $collgrad
+#> [1] "college graduate"
+#> 
+#> $south
+#> [1] "lives in south"
+#> 
+#> $smsa
+#> [1] "lives in SMSA"
+#> 
+#> $c_city
+#> [1] "lives in central city"
+#> 
+#> $industry
+#> [1] "industry"
+#> 
+#> $occupation
+#> [1] "occupation"
+#> 
+#> $union
+#> [1] "union worker"
+#> 
+#> $wage
+#> [1] "hourly wage"
+#> 
+#> $hours
+#> [1] "usual hours worked"
+#> 
+#> $ttl_exp
+#> [1] "total work experience"
+#> 
+#> $tenure
+#> [1] "job tenure (years)"
+
 lookfor(nlsw88, "mar") # search for variables that are related to marriage
 #> Source: local data frame [2 x 6]
 #> 
@@ -67,16 +126,6 @@ List Observations and Separated by Some ID Variable
 
 ``` r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> 
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> 
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 abdata = haven::read_dta("http://www.stata-press.com/data/r13/abdata.dta")
 abdata %>% select(id, year, wage) %>% l(by = "id", n = 30)
 #>     id year             wage

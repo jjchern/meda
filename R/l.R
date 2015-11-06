@@ -9,6 +9,8 @@
 #'
 #' @return `l(df)` returns a data frame.
 #'
+#' @import dplyr
+#'
 #' @examples
 #' library(dplyr)
 #' abdata = haven::read_dta("http://www.stata-press.com/data/r13/abdata.dta")
@@ -21,7 +23,9 @@ l = function(df, by = NULL, n = 20) {
 
   if (is.null(by)) df
   else {
-    breaks = rep("---", ncol(df))
+    #df = df[order(df[by], decreasing=TRUE), ]
+    #df = dplyr::slice(df, n)
+    breaks = rep(" ", ncol(df))
     df_list = split(df, df[by], drop = TRUE)
     df_list = lapply(df_list, t)
     df_list = lapply(df_list, function(x) cbind(x, breaks))
